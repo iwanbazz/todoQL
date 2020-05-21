@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { queryReducer } from "./app/reducers/query";
+import { TodosContainer } from "./app/components/Todos";
+import "./App.css";
+
+import { createStore, applyMiddleware, compose } from "redux";
+import { Provider } from "react-redux";
+import thunkMiddleware from "redux-thunk";
+
+const composeEnhancers =
+  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+    : compose;
+
+const enhancer = composeEnhancers(applyMiddleware(thunkMiddleware));
+const store = createStore(queryReducer, enhancer);
+
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <div className="app">
+          <TodosContainer />
+        </div>
+      </Provider>
+    );
+  }
 }
 
 export default App;
