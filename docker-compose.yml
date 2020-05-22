@@ -21,8 +21,8 @@ todo:
   volumes:
     - ./client:/usr/src/todo
   working_dir: /usr/src/todo
-  command: bash -c "npm start"
+  command: bash -c "npm install && npm run build && npm i -g serve && serve -s build"
   ports:
-    - 3000:3000
+    - 80:5000
   links:
     - graphql:graphql
