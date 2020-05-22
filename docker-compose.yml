@@ -1,0 +1,28 @@
+postgres:
+  image: postgres:12.3
+  ports:
+    - 5432:5432
+  environment:
+    - POSTGRES_PASSWORD=todo
+graphql:
+  image: node:14.3
+  volumes:
+    - ./server:/usr/src/graphql
+  working_dir: /usr/src/graphql
+  command: bash -c "npm install && npm start"
+  ports:
+    - 4000:4000
+  links:
+    - postgres:postgres
+  environment:
+    - POSTGRES_PASSWORD=todo
+todo:
+  image: node:14.3
+  volumes:
+    - ./client:/usr/src/todo
+  working_dir: /usr/src/todo
+  command: bash -c "npm start"
+  ports:
+    - 3000:3000
+  links:
+    - graphql:graphql

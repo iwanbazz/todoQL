@@ -1,11 +1,11 @@
-const pgp = require('pg-promise')();
+const pgp = require("pg-promise")();
 
 const connect = {
-  host: 'localhost',
-  database: 'todo',
-  user: 'iwan',
-  password: 'k1ngd0m',
-  max: 30
+  host: "postgres",
+  database: "postgres",
+  user: "postgres",
+  password: process.env.POSTGRES_PASSWORD,
+  max: 30,
 };
 const db = pgp(connect);
 
