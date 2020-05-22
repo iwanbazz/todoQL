@@ -30,8 +30,6 @@ export default class Todos extends Component {
 
     return (
       <div>
-        {fetchInProgress ? <p>Fetch in progress...</p> : null}
-        {TodoItems}
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -48,6 +46,8 @@ export default class Todos extends Component {
           />{" "}
           <input type="submit" value="add" />
         </form>
+        {fetchInProgress ? <p>Fetch in progress...</p> : null}
+        {TodoItems}
       </div>
     );
   }
