@@ -16,11 +16,11 @@ Main Technologies used
 
 ## Installation
 
-1. Assuming that you have installed latest version of `Docker`.
+1. Assuming that you have installed latest version of `Docker` and `docker-compose`.
 2. Clone this repo `git clone https://github.com/iwanbazz/todoIgaku`.
 3. Cd into cloned directory `cd todoIgaku`.
 4. Run `docker-compose up` then container will be created.
-5. Access `http://localhost` to view the frontend, than `http://localhost:4000/graphql` to view graphql. Check on port `5432` to view PostgreSQL.
+5. Access `http://localhost` to view the react frontend, than `http://localhost:4000/graphql` to view graphql backend. Check on port `5432` to view PostgreSQL.
 
 ## Test the application
 
