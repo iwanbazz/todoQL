@@ -1,4 +1,4 @@
-# Todo Igaku
+# Todo
 
 Main Technologies used
 
